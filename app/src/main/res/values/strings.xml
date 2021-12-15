@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="santa_text">サンタまで</string>
+    <string name="todo">TODO</string>
+    <string name="push">押せ！</string>
+    <string name="count">100</string>
+    <string name="unit">歩</string>
+</resources>
