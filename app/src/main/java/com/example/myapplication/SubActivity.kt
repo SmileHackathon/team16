@@ -10,7 +10,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 
-class MainActivity : AppCompatActivity() {
+class SubActivity : AppCompatActivity() {
     private var santa: ImageView? = null //サンタの画像
     private var movement: Button? = null //動くボタン
     private var distance: TextView? = null //距離の表示
