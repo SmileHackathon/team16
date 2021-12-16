@@ -6,16 +6,25 @@ import android.os.Bundle
 import android.view.View//画面遷移に必要なインポート
 import android.content.Intent//画面遷移に必要なインポート
 import android.media.MediaPlayer//MediaPlayerをつかえるようにする
+import android.animation.ObjectAnimator//アニメーションのライブラリ
+import android.widget.ImageView
+import android.widget.TextView
 
 class SubActivity : AppCompatActivity() {
+    private var santa: ImageView? = null //サンタの画像
+    private var distance: TextView? = null //距離の表示
     lateinit var mp1:MediaPlayer//MediaPlayerの使用を定義する
     private var M=100
     private var u=0
     private var sleep=0
     private var count=0
+    private var text: String? = null //変換のための変数。
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub)
+
+        santa = findViewById(R.id.santa) //サンタ画像の代入
+        distance = findViewById(R.id.Distance) //距離のテキストの代入
 
         mp1= MediaPlayer.create(this,R.raw.gameing)//gameingというBGMを読み込む
         mp1.isLooping=true//BGMをループする
@@ -29,10 +38,21 @@ class SubActivity : AppCompatActivity() {
 
      //ボタンを押したとき
      fun onButtonTapped(view: View?) {
-
-
              if (M >= 1) {
                  M -= 1//距離が
+                 u+=1
+                 val move: View = findViewById(R.id.santa)
+                 ObjectAnimator.ofFloat(move, "translationX", u*5f, u*5+5f).apply{//サンタの画像のx座標を変える
+                     //引数はそれぞれサンタの画像のImageView、プロパティ名、
+                     duration = 1//移動にかかる時間
+                     start()
+                 }
+                 ObjectAnimator.ofFloat(move, "translationY", u*8f, u*8+8f).apply {//サンタの画像のy座標を変える
+                     duration = 1
+                     start()
+                 }
+                 text = M.toString()//文字列データに変換し
+                 distance?.text = text //テキストに反映
                  if(sleep==1){
                      count+=1
                  }
