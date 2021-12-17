@@ -4,6 +4,7 @@ package jp.ac.`fun`.hackathon.santaclaushasfallen
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View//画面遷移に必要なインポート
+//全てのViewクラスを表す(ImageView, TextView, buttonなど)
 import android.content.Intent//画面遷移に必要なインポート
 import android.media.MediaPlayer//MediaPlayerをつかえるようにする
 import android.animation.ObjectAnimator//アニメーションのライブラリ
